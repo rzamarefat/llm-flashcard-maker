@@ -1,14 +1,9 @@
-import {INCREMENT, DECREMENT} from './actionTypes'
+import {ADD_WORDS} from './actionTypes'
 
-
-export const Increment = () => {
+export const addWords = (words) => {
     return {
-        type: INCREMENT,
+        type: ADD_WORDS,
+        payload: words
     }
 }
 
-export const Decrement = () => {
-    return {
-        type: DECREMENT,
-    }
-}
