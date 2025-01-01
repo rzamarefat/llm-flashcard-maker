@@ -1,6 +1,8 @@
 const initialState = {
     "addingWords": "",
     "words": [],
+    "wordsForReview": [],
+    "newWords": [],
     
 }
 
