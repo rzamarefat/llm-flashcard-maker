@@ -1,4 +1,4 @@
-import { ADD_WORDS } from "./actionTypes";
+import { ADD_WORDS, SET_ALL_WORDS } from "./actionTypes";
 import initialState from "./initiaState"
 
 
@@ -7,6 +7,10 @@ const reducer = (state = initialState, action) => {
         case ADD_WORDS:
             return {
                 ...state, addingWords: action.payload
+            }
+        case SET_ALL_WORDS:
+            return {
+                ...state, words: action.payload
             }
 
         default:
