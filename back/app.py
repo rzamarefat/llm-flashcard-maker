@@ -96,6 +96,15 @@ def get_new_words():
 
     except Exception as e:
         return make_response(jsonify({"message": str(e)}), 500)
+    
+@app.route('/generate', methods=['GET'])
+def generate_for_review_words():
+    try:
+        content = "Ich lese gerne Bücher in meiner Freizeit.', 'In der Bibliothek gibt es viele interessante Bücher. eine klare, farblose, geschmacklose Flüssigkeit, die in Flüssen, Seen, Meeren und als Regen fällt eine klare, farblose, geschmacklose Flüssigkeit, die in Flüssen, Seen, Meeren und als Regen fällt eine klare, farblose, geschmacklose Flüssigkeit, die in Flüssen, Seen, Meeren und als Regen fällt eine klare, farblose, geschmacklose Flüssigkeit, die in Flüssen, Seen, Meeren und als Regen fällt"
+        return jsonify({"content": content}), 200
+
+    except Exception as e:
+        return make_response(jsonify({"message": str(e)}), 500)
 
 
 

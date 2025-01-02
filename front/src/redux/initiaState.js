@@ -2,7 +2,9 @@ const initialState = {
     "addingWords": "",
     "words": [],
     "wordsForReview": [],
-    "focusedReviewWord": "null",
+    "focusedReviewWord": -1,
+    "contentWithReviewWords": null,
+
     
 }
 
