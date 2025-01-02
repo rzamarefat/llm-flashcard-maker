@@ -1,4 +1,4 @@
-import {ADD_WORDS, SET_ALL_WORDS, SET_NEW_WORDS, SET_FOCUSED_REVIEW_WORD} from './actionTypes'
+import {ADD_WORDS, SET_ALL_WORDS, SET_FOCUSED_REVIEW_WORD, SET_WORDS_FOR_REVIEW} from './actionTypes'
 
 export const addWords = (words) => {
     return {
@@ -15,17 +15,16 @@ export const setAllWords = (words) => {
     }
 }
 
-export const setNewWords = (words) => {
+export const setReviewWords = (words) => {
     return {
-        type: SET_NEW_WORDS,
+        type: SET_WORDS_FOR_REVIEW,
         payload: words
 
     }
 }
 
-export const setFocusedReviewWord = (word) => {
+export const setFocusedReviewWord = () => {
     return {
         type: SET_FOCUSED_REVIEW_WORD,
-        payload: word
     }
 }
