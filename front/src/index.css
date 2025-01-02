@@ -2,8 +2,8 @@
 
 .flip-card {
     background-color: transparent;
-    width: 300px;
-    height: 200px;
+    width: 100rem;
+    height: 20rem;
     border: 1px solid #f1f1f1;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
   }
@@ -47,35 +47,3 @@
 
 /* https://www.w3schools.com/howto/howto_css_flip_card.asp */
 
-
-.carousel-arrow {
-  /* position: absolute; */
-  display: flex;
-  justify-content: center;
-  top: 0;
-  bottom: 64px;
-  margin-block: auto;
-  height: fit-content;
-  width: 48px;
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
-  border: none;
-  font-size: 2rem;
-  padding: 0;
-  cursor: pointer;
-  opacity: 1;
-  transition: opacity 100ms;
-}
-
-.carousel-arrow:hover,
-.carousel-arrow:focus {
-  opacity: 1;
-}
-
-.carousel-arrow--prev {
-  left: 0;
-}
-
-.carousel-arrow--next {
-  right: 0;
-}

@@ -3,8 +3,6 @@ import Navbar from '../components/Navbar'
 import { useDispatch, useSelector } from "react-redux"
 import { setNewWords } from "../redux/actions";
 import FlipWordItem from "../components/FlipWordItem";
-import Slider from 'react-slick';
-import Carousel from 'react-bootstrap/Carousel';
 
 
 const Review = () => {
@@ -17,14 +15,13 @@ const Review = () => {
         setIndex(selectedIndex);
     };
 
-
     useEffect(() => {
         const fetchWords = async () => {
             try {
                 const response = await fetch("http://localhost:5000/new-words");
                 const data = await response.json();
                 console.log(data);
-                
+                // console.log("dssadasdadassdadadasdasdasdasdads")
                 dispatch(setNewWords(data.words))
                 
             } catch (error) {
@@ -40,14 +37,23 @@ const Review = () => {
     return (
         <>
             <Navbar/>
-            <Carousel activeIndex={index} onSelect={handleSelect}>
-                <Carousel.Item>
-                <Carousel.Caption>
-                    <h3 className="primary-text">First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
+            <div className="row">
+                    <div className="col-sm-12">
+                        <div className="" style={{ width: '40vw', margin: 'auto', marginTop: '5vh', position: 'relative' }}>
+                            <FlipWordItem word={wordsForReview[0]} />
+                        </div>
+                    </div>
+            </div>
+
+            <div className="row my-5">
+                <div className="col-sm-6 d-flex justify-content-center align-items-center p-5">
+                    <button class="btn btn-light border-danger w-50"><span className="text-danger display-5">Missed</span></button>
+                </div>
+                <div className="col-sm-6 d-flex justify-content-center align-items-center p-5">
+                    <button class="btn btn-success w-50"><span className="display-5">Remember</span></button>
+                </div>
+                
+            </div> 
         </>
         
       );

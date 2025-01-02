@@ -3,6 +3,7 @@ const initialState = {
     "words": [],
     "wordsForReview": [],
     "newWords": [],
+    "focusedReviewWord": "null",
     
 }
 

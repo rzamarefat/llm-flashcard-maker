@@ -81,6 +81,7 @@ def get_words():
 
 @app.route('/new-words', methods=['GET'])
 def get_new_words():
+    print("++++++++++++")
     try:
         words_to_review = db.session.query(Word).filter(
                 Word.first_memorized_date.is_(None),
