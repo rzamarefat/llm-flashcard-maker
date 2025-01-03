@@ -2,7 +2,8 @@ import { ADD_WORDS,
         SET_ALL_WORDS, 
         SET_WORDS_FOR_REVIEW, 
         SET_FOCUSED_REVIEW_WORD, 
-        SET_CONTENT_FOR_REVIEW_WORDS 
+        SET_CONTENT_FOR_REVIEW_WORDS, 
+        SET_WORDS_FOR_VERIFICATION
 } from "./actionTypes";
 import initialState from "./initiaState"
 
@@ -30,6 +31,10 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state, contentWithReviewWords: action.payload
             }
+        case SET_WORDS_FOR_VERIFICATION:
+                return {
+                    ...state, wordsForVerification: action.payload
+                }
 
         default:
             return state;

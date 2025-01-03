@@ -9,7 +9,7 @@ const FlipWordItem = ({word}) => {
                         <h1>{word.word}</h1>
                     </div>
                     <div className="flip-card-back">
-                        <h1>{word.word}</h1>
+                        <h1>{word.corrected_original_word}</h1>
                         <p>{word.english_translation}</p>
                         <p>{word.german_description}</p>
                         <p>Example 1: {word.examples[0]}</p>

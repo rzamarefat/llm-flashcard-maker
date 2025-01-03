@@ -32,8 +32,8 @@ class Word(db.Model):
 with app.app_context():
     db.create_all()
 
-@app.route('/submit-words', methods=['POST'])
-def submit_words():
+@app.route('/submit-new-words', methods=['POST'])
+def submit_new_words():
     try:
         data = request.get_json()
         words_text = data.get('words')
@@ -45,10 +45,8 @@ def submit_words():
         if not words_list:
             return make_response(jsonify({"message": "No valid words found."}), 400)
 
-        # Assuming llm_response is a list of dictionaries returned from the LLM
         llm_response = llm(words_list)
-        print(llm_response)
-        # Loop through LLM response and add each word's details to the database
+
         new_words = []
         for word_info in llm_response:
             new_word = Word(
@@ -63,10 +61,38 @@ def submit_words():
         db.session.add_all(new_words)
         db.session.commit()
 
-        return jsonify({"message": "Words successfully submitted!", "words": [word['corrected_original_word'] for word in llm_response]}), 200
+        return jsonify({"message": "Words successfully submitted!", "words": llm_response}), 200
 
     except Exception as e:
         return make_response(jsonify({"message": str(e)}), 500)
+
+
+@app.route('/verify-new-words', methods=['POST'])
+def verify_new_words():
+    try:
+        data = request.get_json()
+        print(data)
+        # new_words = []
+        # for word_info in llm_response:
+        #     new_word = Word(
+        #         word=word_info.get('corrected_original_word'),
+        #         english_translation=word_info.get('english_translation'),
+        #         german_description=word_info.get('german_description'),
+        #         examples=word_info.get('examples'),
+        #         article=word_info.get('article')
+        #     )
+        #     new_words.append(new_word)
+
+        # db.session.add_all(new_words)
+        # db.session.commit()
+
+        return jsonify({"message": "Words successfully submitted!", "words": "llm_response"}), 200
+
+    except Exception as e:
+        return make_response(jsonify({"message": str(e)}), 500)
+
+
+
 
 @app.route('/words', methods=['GET'])
 def get_words():

@@ -4,8 +4,7 @@ const initialState = {
     "wordsForReview": [],
     "focusedReviewWord": -1,
     "contentWithReviewWords": null,
-
-    
+    "wordsForVerification": []
 }
 
 
